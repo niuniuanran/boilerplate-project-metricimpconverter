@@ -89,13 +89,12 @@ suite('Unit Tests', function(){
     
     test('For Each Valid Unit Inputs', function(done) {
       const input = ['gal','l','mi','km','lbs','kg'];
-      const spell = ['liters','gallons','kilometers','miles','kilograms','pounds'];
+      const spell = ['gallons','liters', 'miles','kilometers','pounds','kilograms'];
       input.forEach(function(ele, i) {
         assert.equal(convertHandler.spellOutUnit(ele), spell[i]);
       });
       done();
     });
-    
   });
   
   suite('Function convertHandler.convert(num, unit)', function() {
