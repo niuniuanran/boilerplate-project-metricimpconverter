@@ -11,7 +11,14 @@ var runner            = require('./test-runner');
 require("dotenv").config();
 
 var app = express();
+const helmet = require('helmet');
 
+app.use(helmet({
+  frameguard: {         // configure
+    action: 'deny'
+  },
+  dnsPrefetchControl: false     // disable
+}));
 app.use('/public', express.static(process.cwd() + '/public'));
 
 app.use(cors({origin: '*'})); //For FCC testing purposes only
